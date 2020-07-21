@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1>danh sach san pham</h1>
+    <form action="{{ url_for('products_list') }}">
+        <input type="text" name="keyword" placeholder="ten san pham">
+        <input type="submit">
+    </form>
+    <table border="1" width="100%">
+    {% for product in products %}
+        <tr>
+            <td>
+            <img src="{{ product.images }}" alt="{{ product.name }}">
+            </td>
+            <td>
+            <h1>{{ product.name }}</h1>
+        </td>
+            <td>
+                <h3>{{ product.description }}</h3>
+            </td>
+            <td>
+            <h1>{{ "{:,.2f}".format(product.price) }} vnđ</h1>
+        </td>
+        <td>
+            <a href="#">cap nhat</a>
+            <a href="#">xoa</a>
+        </td>
+        </tr>
+    {% endfor %}
+</table>
+
+</body>
+</html>

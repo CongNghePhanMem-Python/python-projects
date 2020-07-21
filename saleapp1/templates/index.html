@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
+</head>
+<body>
+    <h1>Trang chủ</h1>
+    <ul>
+        <li><a href="{{ url_for('products_list') }}">all</a> </li>
+        <li><a href="{{ url_for('product_list_by_cate', category_id=1) }}">dien thoai</a> </li>
+        <li><a href="{{ url_for('product_list_by_cate', category_id=2) }}">may tinh bang</a> </li>
+    </ul>
+
+</body>
+</html>
