@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
+    <title>them san pham</title>
+    <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
+    <meta charset="UTF-8">
+</head>
+<body class="container">
+    <h1 class="text-center">Quan Li san pham</h1>
+    <form method="post">
+        <div class="form-group">
+            <label>ten san pham</label>
+            <input type="text" name="name" class="form-control" value="{{ product.name }}" />
+        </div>
+        <div class="form-group">
+            <label>Mo ta</label>
+            <textarea type="text" name="description" class="form-control">{{ product.description }}</textarea>
+        </div>
+        <div class="form-group">
+            <label>Gia</label>
+            <input type="number" name="price" class="form-control" value="{{ product.price }}" />
+        </div>
+        <div class="form-group">
+            <label>Anh</label>
+            <input type="number" name="image" value="{{ product.image }}" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label>Danh muc</label>
+             <select name="category" class="form-control">
+                {% for cat in categories %}
+                    {% if product.category == cat.id %}
+                        <option value="{{ cat.id }}" selected>{{ cat.name }}</option>
+                    {% else %}
+                        <option value="{{ cat.id }}">{{ cat.name }}</option>
+                    {% endif %}
+                {% endfor %}
+             </select>
+        </div>
+
+        <div>
+            <input type="submit" value="{% if product %} cap nhat {% else %} them {% endif %} san pham" class="btn btn-danger" />
+        </div>
+    </form>
+</body>
+</html>
