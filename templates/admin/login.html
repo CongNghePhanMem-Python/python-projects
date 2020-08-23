@@ -1,0 +1,15 @@
+<h1 class="text-center text-info">Login</h1>
+<form method="post" action="{{ url_for('login_admin') }}">
+        <div class="form-group">
+            <span class="text-danger">Tên đăng nhập:</span>
+         <input type="text" name="username" class="form-control" placeholder="User name..."/>
+        </div>
+        <div class="form-group">
+            <span class="text-danger">Mật khẩu:</span>
+            <input type="password" name="password" class="form-control" placeholder="Password..."/>
+        </div>
+        <div class="form-group">
+            <input type="submit" value="Login" class="btn btn-danger"/>
+        </div>
+</form>
+<a href="{{url_for('registerview.__index__')}}" class="navbar-item">Register</a>
